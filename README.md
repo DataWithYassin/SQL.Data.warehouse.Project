@@ -19,7 +19,7 @@ Sales, customer, and product data sat in two separate systems, delivered as CSV 
 
 ## Architecture
 
-![Data Architecture](docs/data_architecture.png)
+![Data Architecture](docs/data_architecture.svg)
 
 The warehouse follows the **Medallion Architecture**:
 
@@ -44,9 +44,17 @@ Quality checks for each layer are in [`tests/`](tests/).
 
 ---
 
+## Source integration
+
+![Source Integration](docs/data_integration.svg)
+
+CRM sales link to CRM products and customers. ERP adds product categories (`prd_key` to `id`) and customer birthdate, gender, and country (`cst_key` to `cid`).
+
+---
+
 ## Data model (Gold layer)
 
-![Data Model](docs/data_model.png)
+![Data Model](docs/data_model.svg)
 
 - `gold.dim_customers`: customer attributes from CRM, enriched with ERP birthdate, gender, and country
 - `gold.dim_products`: product attributes with category and subcategory from ERP
@@ -59,7 +67,7 @@ Naming rules: [`docs/naming_conventions.md`](docs/naming_conventions.md)
 
 ## Data flow
 
-![Data Flow](docs/data_flow.png)
+![Data Flow](docs/data_flow.svg)
 
 ---
 
